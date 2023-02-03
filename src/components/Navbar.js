@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "../style/sass/Navbar.module.sass";
+import styles from "../style/Navbar.module.sass";
 
 function Navbar() {
 	return (
