@@ -7,13 +7,17 @@ import styles from "../style/ProjectConfiguratorMain.module.sass";
 
 import { useProject } from "../context/projectContext";
 
-function IconCard({ icon }) {
+function IconCard({ icon, type }) {
 	const { id, fullName, icon: iconUrl } = icon;
-	const { HOST } = useProject();
-	const [isActive, setIsActive] = useState(false);
+	const { HOST, changeUsedScope, changeUsedAddons } = useProject();
+	const isActive = useProject()[type][id];
 
 	const handleClick = () => {
-		setIsActive((current) => !current);
+		if (type === "usedScope") {
+			changeUsedScope(id);
+			return;
+		}
+		changeUsedAddons(id);
 	};
 
 	return (

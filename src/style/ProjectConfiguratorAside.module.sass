@@ -38,12 +38,14 @@
         justify-content: space-between
         .typeItem
             flex-basis: 15%
+            width: 230px
 
             display: flex
             align-items: center
             opacity: 0.5
 
             @include animation-hover-main
+
             .buildingTypeIcon
                 width: 50px
                 height: 50px
@@ -54,13 +56,26 @@
                 margin-left: 20px
                 width: 180px
                 @include typography-paragraph(white)
+
+        & .typeItemActive
+            opacity: 1
+            transform: translateX(10px)
+            .buildingTypeIcon
+                box-shadow: $box-shadow-main
+            .buildingTypeTitle
+                transform-origin: left
+                font-weight: 400
 .priceBar
     flex-basis: $bottom-bar-height
 
     display: flex
     justify-content: space-between
+
     .priceHeading
         @include typography-secondary($color-font-light)
     .priceValue
         margin-top: 5px
+        @include typography-main-bold($color-font-light)
+
+    .priceBarDummy
         @include typography-main-bold($color-font-light)

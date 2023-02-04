@@ -6,10 +6,19 @@ import { useProject } from "../context/projectContext";
 
 function BuildingTypeCard({ type }) {
 	const { id, fullName, icon } = type;
-	const { HOST } = useProject();
+	const { HOST, changeUsedType, usedType } = useProject();
+
+	const isActive = usedType === id;
+
+	const handleClick = () => {
+		changeUsedType(id);
+	};
 
 	return (
-		<li className={styles.typeItem}>
+		<li
+			className={`${styles.typeItem} ${isActive ? styles.typeItemActive : ""}`}
+			onClick={handleClick}
+		>
 			<img
 				className={styles.buildingTypeIcon}
 				src={`${HOST}/typeimage/${icon}`}

@@ -23,7 +23,7 @@ function Navbar() {
 			<ul className={styles.list}>
 				{NAVBAR_LINKS.map((link) => {
 					return (
-						<li className={styles.item}>
+						<li className={styles.item} key={link.title}>
 							<a className={styles.itemText}>{link.title}</a>
 						</li>
 					);

@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const ProjectContext = createContext(undefined);
 
@@ -8,15 +9,38 @@ export const ProjectProvider = ({ children }) => {
 	const [projectAddons, setProjectAddons] = useState([]);
 	const [projectPhases, setProjectPhases] = useState([]);
 	const [price, setPrice] = useState(undefined);
+	const [imageURL, setImageURL] = useState("dummy.png");
 
 	const [usedType, setUsedType] = useState(undefined);
 	const [usedScope, setUsedScope] = useState([false, false, false, false]);
 	const [usedAddons, setUsedAddons] = useState([false, false, false, false]);
-	const [usedBudget, setUsedBudget] = useState(undefined);
+	const [usedBudget, setUsedBudget] = useState("");
 
 	const HOST = "http://127.0.0.1:3636";
 
-	useEffect(() => {}, [usedType, usedScope, usedAddons, usedBudget]);
+	useEffect(() => {
+		if (
+			usedType === undefined ||
+			usedBudget === "" ||
+			usedScope.findIndex((scope) => scope === true) === -1
+		) {
+			setPrice(undefined);
+			return;
+		}
+
+		setPrice(500);
+	}, [usedType, usedScope, usedAddons, usedBudget]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await axios.post(`${HOST}/projectimage`, {
+				usedType,
+				usedScope,
+			});
+			setImageURL(response.data.imageURL);
+		};
+		fetchData();
+	}, [usedType, usedScope, usedAddons, usedBudget]);
 
 	const updateProject = ({ projectTypes, projectPhases, projectAddons }) => {
 		setProjectTypes(projectTypes);
@@ -90,6 +114,8 @@ export const ProjectProvider = ({ children }) => {
 				changeUsedType,
 				changeUsedScope,
 				changeUsedAddons,
+				price,
+				imageURL,
 				HOST,
 			}}
 		>

@@ -41,8 +41,10 @@
 
         .heading
             @include typography-main-bold($color-font-dark)
-        .budgetInput
-            line-height: 49px
+
+        .inputLeftElement
+            color: gray
+            font-size: 0.6em
 
         .iconList
             display: flex
@@ -63,6 +65,11 @@
                 box-shadow: $box-shadow-main
                 background-color: $color-bg-icon-active
                 border: none
+                .iconImage
+                    filter: invert(1) brightness(0.9)
 
     .footer
         flex-basis: $bottom-bar-height
+        padding-top: 55px
+        text-align: right
+        font-size: 15px

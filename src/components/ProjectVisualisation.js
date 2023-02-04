@@ -2,8 +2,26 @@ import React from "react";
 
 import styles from "../style/ProjectVisualisation.module.sass";
 
+import { useProject } from "../context/projectContext";
+
 function ProjectVisualisation() {
-	return <section className={styles.visualisation}>Visualisation</section>;
+	const { imageURL, HOST } = useProject();
+
+	console.log(imageURL);
+	return (
+		<section className={styles.visualisation}>
+			<img
+				src={`${HOST}/projectimage/${imageURL}`}
+				alt="Project visualisation"
+				className={styles.visualisationImageShadow}
+			/>
+			<img
+				src={`${HOST}/projectimage/${imageURL}`}
+				alt="Project visualisation"
+				className={styles.visualisationImage}
+			/>
+		</section>
+	);
 }
 
 export default ProjectVisualisation;
