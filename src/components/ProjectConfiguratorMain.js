@@ -1,5 +1,7 @@
 import React from "react";
 
+import GitHubIcon from "@mui/icons-material/GitHub";
+
 import { useProject } from "../context/projectContext";
 
 import Navbar from "./Navbar";
@@ -27,7 +29,21 @@ function ProjectConfiguratorMain() {
 					type="usedAddons"
 				/>
 			</div>
-			<footer className={styles.footer}>Created by Piotr Andrzejewski</footer>
+			<footer className={styles.footer}>
+				Created by Piotr Andrzejewski <GitHubIcon sx={{ marginLeft: "30px" }} />{" "}
+				<a
+					href="https://github.com/PioterAndrzejewski/project_configurator_frontend"
+					className={styles.footerLink}
+				>
+					FE
+				</a>{" "}
+				<a
+					href="https://github.com/PioterAndrzejewski/project_configurator_backend"
+					className={styles.footerLink}
+				>
+					BE
+				</a>
+			</footer>
 		</section>
 	);
 }

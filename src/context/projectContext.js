@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { RepeatOneSharp } from "@mui/icons-material";
 
 const ProjectContext = createContext(undefined);
 
@@ -16,19 +17,55 @@ export const ProjectProvider = ({ children }) => {
 	const [usedAddons, setUsedAddons] = useState([false, false, false, false]);
 	const [usedBudget, setUsedBudget] = useState("");
 
+	const [priceError, setPriceError] = useState(undefined);
+	const [loadingPrice, setLoadingPrice] = useState(false);
+
 	const HOST = "http://127.0.0.1:3636";
 
 	useEffect(() => {
-		if (
-			usedType === undefined ||
-			usedBudget === "" ||
-			usedScope.findIndex((scope) => scope === true) === -1
-		) {
+		const fetchProjectPrice = async () => {
+			setLoadingPrice(true);
+			setPriceError(undefined);
 			setPrice(undefined);
+			const response = await axios.post(`${HOST}/projectprice`, {
+				usedType,
+				usedScope,
+				usedAddons,
+				usedBudget,
+			});
+			if (!response.data.success) {
+				setLoadingPrice(false);
+				setPrice(undefined);
+				setPriceError(response.data.message);
+				return;
+			}
+
+			if (response.data.success) {
+				setLoadingPrice(false);
+				setPriceError("");
+				setPrice(response.data.price);
+			}
+
+			return;
+		};
+
+		if (usedBudget === "") {
+			setPrice(undefined);
+			setPriceError("Please specify estimated construction budget");
+			return;
+		}
+		if (usedType === undefined) {
+			setPrice(undefined);
+			setPriceError("Please specify Project Type");
+			return;
+		}
+		if (usedScope.findIndex((scope) => scope === true) === -1) {
+			setPrice(undefined);
+			setPriceError("Please specify Project Scope");
 			return;
 		}
 
-		setPrice(500);
+		fetchProjectPrice();
 	}, [usedType, usedScope, usedAddons, usedBudget]);
 
 	useEffect(() => {
@@ -117,6 +154,8 @@ export const ProjectProvider = ({ children }) => {
 				price,
 				imageURL,
 				HOST,
+				priceError,
+				loadingPrice,
 			}}
 		>
 			{children}

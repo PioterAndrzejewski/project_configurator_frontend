@@ -6,8 +6,6 @@ import { useProject } from "../context/projectContext";
 
 function ProjectVisualisation() {
 	const { imageURL, HOST } = useProject();
-
-	console.log(imageURL);
 	return (
 		<section className={styles.visualisation}>
 			<img

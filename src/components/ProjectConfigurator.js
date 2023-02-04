@@ -16,7 +16,6 @@ function ProjectConfigurator() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.post(`${HOST}/gettypes`);
-			console.log(response.data);
 			updateProject(response.data);
 		};
 		if (!dataLoaded) fetchData();
