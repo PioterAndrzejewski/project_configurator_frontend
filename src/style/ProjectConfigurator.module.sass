@@ -1,0 +1,23 @@
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+.configurator
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    width: 1366px
+    height: 900px
+    border-radius: 10px
+    font-size: 35px
+    font-family: $font-main
+
+    display: grid
+    grid-template-columns: [first] 520px [line2] auto [end]
+    grid-template-rows: [first] auto [end]
+    overflow: hidden
+
+    background-color: $color-bg-light
+    box-shadow: $box-shadow-main

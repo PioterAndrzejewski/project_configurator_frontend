@@ -1,28 +1,17 @@
-import Navbar from "./components/Navbar";
+import React from "react";
+
+import ProjectConfigurator from "./components/ProjectConfigurator";
+
+import styles from "./style/App.module.sass";
+
+import { ProjectProvider } from "./context/projectContext";
 
 function App() {
-	// return (
-	// 	<div className="App">
-	// 		<ProjectContext>
-	// 			<Visualisation />
-	// 			<aside>
-	// 				<Logotype />
-	// 				<BuildingTypeSelector />
-	// 				<PriceDisplayer />
-	// 			</aside>
-	// 			<main className="Main">
-	// 				<Navbar />
-	// 				<CostForm />
-	// 				<SpecificationIconsBar />
-	// 				<SpecificationIconsBar />
-	// 			</main>
-	// 		</ProjectContext>
-	// 	</div>
-	// );
-
 	return (
-		<div className="App">
-			<Navbar />
+		<div className={styles.app}>
+			<ProjectProvider>
+				<ProjectConfigurator />
+			</ProjectProvider>
 		</div>
 	);
 }

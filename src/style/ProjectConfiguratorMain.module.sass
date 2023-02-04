@@ -1,0 +1,68 @@
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+.main
+    @include grid-child-position(2, end, first, end)
+    @include flex-column-layout
+
+    margin-right: 60px
+
+    .navbar
+        flex-basis: $top-bar-height
+        width: $right-column-width
+        align-self: flex-end
+        .list
+            line-height: $top-bar-height
+            display: flex
+            align-items: center
+            justify-content: space-between
+            .item
+                flex-basis: 147px
+                text-align: center
+                @include typography-secondary(black)
+                &:first-child
+                    text-align: left
+                &:last-child
+                    text-align: right
+                .itemText
+                    display: inline-block
+                    @include animation-hover-main
+                    @include animation-nav-item
+    .projectDetails
+        flex-grow: 1
+        display: flex
+        width: $right-column-width
+        align-self: flex-end
+
+        flex-direction: column
+        justify-content: space-around
+
+        .heading
+            @include typography-main-bold($color-font-dark)
+        .budgetInput
+            line-height: 49px
+
+        .iconList
+            display: flex
+            justify-content: space-between
+
+            .iconItem
+                width: 125px
+                border: 1px solid black
+                border-radius: 10px
+                opacity: 0.6
+                @include animation-hover-main
+                .iconImage
+                    display: block
+                    min-height: 100%
+                    min-width: 100%
+            & .active
+                opacity: 1
+                box-shadow: $box-shadow-main
+                background-color: $color-bg-icon-active
+                border: none
+
+    .footer
+        flex-basis: $bottom-bar-height

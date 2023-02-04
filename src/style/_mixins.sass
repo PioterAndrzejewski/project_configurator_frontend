@@ -1,0 +1,51 @@
+@mixin grid-child-position($first-vertical, $last-vertical, $first-horizontal, $last-horizontal)
+    grid-column-start: $first-vertical
+    grid-column-end: $last-vertical
+    grid-row-start: $first-horizontal
+    grid-row-end: $last-horizontal
+
+@mixin flex-column-layout
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+@mixin typography-main-bold($color)
+    font-family: $font-main
+    font-weight: 600
+    font-size: 30px
+    letter-spacing: 1px
+    color: $color
+
+@mixin typography-secondary($color)
+    font-family: $font-main
+    font-weight: 300
+    font-size: 18px
+    color: $color
+
+@mixin typography-paragraph($color)
+    font-family: $font-main
+    font-weight: 100
+    font-size: 14px
+    line-height: 135%
+    letter-spacing: 1px
+    color: $color
+
+@mixin animation-hover-main
+    transition: 0.15s
+    cursor: pointer
+    &:hover
+        transform: translate(0, -2px) scale(102%)
+        opacity: 1
+
+@mixin animation-nav-item
+    &::after
+        content: ""
+        display: block
+        position: relative
+        top: -45px
+        height: 1px
+        background-color: $color-bg-main
+        transition: 0.15s
+        transform: scaleX(0%)
+    &:hover::after
+        transform: scaleX(100%)

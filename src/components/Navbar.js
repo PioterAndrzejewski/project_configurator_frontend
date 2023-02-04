@@ -1,17 +1,35 @@
 import React from "react";
 
-import styles from "../style/Navbar.module.sass";
+import styles from "../style/ProjectConfiguratorMain.module.sass";
+
+const NAVBAR_LINKS = [
+	{
+		title: "Home",
+		to: "#",
+	},
+	{
+		title: "Pricing",
+		to: "#",
+	},
+	{
+		title: "Contact",
+		to: "#",
+	},
+];
 
 function Navbar() {
 	return (
-		<>
-			<h1 className={styles.h1}>This is my navbar</h1>
-			<ul>
-				<li>Pierwszy</li>
-				<li>Drugi</li>
-				<li>Trzeci</li>
+		<nav className={styles.navbar}>
+			<ul className={styles.list}>
+				{NAVBAR_LINKS.map((link) => {
+					return (
+						<li className={styles.item}>
+							<a className={styles.itemText}>{link.title}</a>
+						</li>
+					);
+				})}
 			</ul>
-		</>
+		</nav>
 	);
 }
 

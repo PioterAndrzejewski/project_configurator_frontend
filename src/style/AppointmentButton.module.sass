@@ -1,0 +1,23 @@
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+.appointmentButton
+    width: 170px
+    height: 70px
+    margin-right: 50px
+    border: none
+    border-radius: 10px
+
+    font-family: $font-main
+    font-weight: 300
+    font-size: 15px
+    color: white
+
+    background-color: $color-bg-button
+    box-shadow: $box-shadow-main
+
+    @include animation-hover-main
+    &:hover
+        background-color: $color-bg-button-active
