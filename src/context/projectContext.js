@@ -56,7 +56,7 @@ export const ProjectProvider = ({ children }) => {
 		}
 		if (usedType === undefined) {
 			setPrice(undefined);
-			setPriceError("Please specify Project Type");
+			setPriceError("Please specify Building Type");
 			return;
 		}
 		if (usedScope.findIndex((scope) => scope === true) === -1) {

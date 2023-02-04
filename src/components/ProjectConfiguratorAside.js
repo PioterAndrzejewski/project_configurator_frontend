@@ -1,5 +1,4 @@
 import React from "react";
-
 import LogoHeader from "./LogoHeader";
 import TypeSelector from "./TypeSelector";
 import PriceBar from "./PriceBar";

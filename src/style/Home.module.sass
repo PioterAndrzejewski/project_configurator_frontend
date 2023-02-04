@@ -1,0 +1,40 @@
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+.home
+    position: absolute
+    z-index: 1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: $color-bg-main
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    transition: 0.3s
+    transform: translateX(0px)
+
+    .logoContainer
+
+        display: flex
+        align-items: center
+        justify-content: center
+        .logo
+            height: 30px
+            margin-right: 5px
+        .logoText
+            @include typography-main($color-font-light)
+
+    .slogan
+        margin-top: 50px
+        @include typography-secondary($color-font-light)
+
+.homeMoved
+    transition: 0.3s
+    transform: translateX(-1500px)

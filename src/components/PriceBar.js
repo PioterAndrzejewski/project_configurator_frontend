@@ -1,4 +1,5 @@
 import React from "react";
+import { ChakraProvider, Spinner, Center } from "@chakra-ui/react";
 
 import AppointmentButton from "./AppointmentButton.js";
 
@@ -11,6 +12,13 @@ function PriceBar() {
 
 	return (
 		<section className={styles.priceBar}>
+			{loadingPrice && (
+				<ChakraProvider>
+					<Center>
+						<Spinner color="white" size="lg" />
+					</Center>
+				</ChakraProvider>
+			)}
 			{price && (
 				<>
 					<div className={styles.priceText}>
