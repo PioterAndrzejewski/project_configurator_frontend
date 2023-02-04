@@ -2,9 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## UI
 
-In the project directory, you can run:
+The appearance of the application was first designed in Figma
+
+![image](https://user-images.githubusercontent.com/109315248/216726218-f4f0b290-80fb-4453-9d15-9d5a84bfeb3a.png)
+
 
 ### `npm start`
 
