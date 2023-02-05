@@ -31,6 +31,7 @@ function Budget({ title }) {
 						placeholder="budget"
 						value={usedBudget}
 						onChange={handleChange}
+						color="gray.900"
 					/>
 				</InputGroup>
 			</ChakraProvider>

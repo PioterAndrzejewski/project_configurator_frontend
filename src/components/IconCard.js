@@ -22,7 +22,12 @@ function IconCard({ icon, type }) {
 
 	return (
 		<ChakraProvider>
-			<Tooltip label={fullName} aria-label="A tooltip" bg="#474F79">
+			<Tooltip
+				label={fullName}
+				aria-label="A tooltip"
+				bg="#474F79"
+				color="white"
+			>
 				<li
 					className={`${styles.iconItem} ${isActive && styles.active}`}
 					onClick={handleClick}

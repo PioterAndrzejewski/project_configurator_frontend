@@ -55,8 +55,6 @@ function ContactForm() {
 		validationSchema: basicSchema,
 	});
 
-	console.log(Object.keys(errors).length);
-
 	return (
 		<>
 			<section className={styles.contactForm}>
