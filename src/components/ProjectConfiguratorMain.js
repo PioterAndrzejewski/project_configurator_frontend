@@ -3,6 +3,7 @@ import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 import { useProject } from "../context/projectContext";
+import { useRouter } from "../context/routerContext";
 
 import Navbar from "./Navbar";
 import Budget from "./Budget.js";
@@ -12,6 +13,7 @@ import styles from "../style/ProjectConfiguratorMain.module.sass";
 
 function ProjectConfiguratorMain() {
 	const { projectPhases, projectAddons } = useProject();
+	const { screen } = useRouter();
 
 	return (
 		<section className={styles.main}>
@@ -29,7 +31,11 @@ function ProjectConfiguratorMain() {
 					type="usedAddons"
 				/>
 			</div>
-			<footer className={styles.footer}>
+			<footer
+				className={`${styles.footer} ${
+					screen === "pricing" ? styles.footerDark : styles.footerLight
+				}`}
+			>
 				Created by Piotr Andrzejewski <GitHubIcon sx={{ marginLeft: "30px" }} />{" "}
 				<a
 					href="https://github.com/PioterAndrzejewski/project_configurator_frontend"

@@ -3,10 +3,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 const RouterContext = createContext(undefined);
 
 export const RouterProvider = ({ children }) => {
-	const [screen, setScreen] = useState(true);
+	const [screen, setScreen] = useState("home");
 
 	const movePage = (destination) => {
-		console.log(destination);
 		setScreen(destination);
 	};
 

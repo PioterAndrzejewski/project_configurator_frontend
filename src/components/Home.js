@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
-import logo from "../assets/img/logo.png";
+import Slogan from "./Slogan";
 
 import { useRouter } from "../context/routerContext";
 
@@ -17,15 +17,14 @@ function Home() {
 		<>
 			<section
 				className={`${styles.home} ${
-					screen === "pricing" ? styles.homeMoved : ""
+					screen !== "home" ? styles.homeMoved : ""
 				}`}
 				onClick={handleClick}
 			>
 				<div className={styles.logoContainer}>
-					<img src={logo} alt="Logo" className={styles.logo} />
-					<h1 className={styles.logoText}>Project configurator</h1>
+					<Slogan />
 				</div>
-				<h2 className={styles.slogan}>Press anywhere to continue</h2>
+				<h2 className={styles.slogan}>Press here to continue</h2>
 			</section>
 		</>
 	);

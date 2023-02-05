@@ -20,15 +20,22 @@ const NAVBAR_LINKS = [
 ];
 
 function Navbar() {
-	const { movePage } = useRouter();
+	const { movePage, screen } = useRouter();
 	return (
 		<nav className={styles.navbar}>
 			<ul className={styles.list}>
 				{NAVBAR_LINKS.map((link) => {
 					return (
-						<li className={styles.item} key={link.title}>
+						<li
+							className={`${styles.item} ${
+								screen === "pricing" ? styles.itemLigh : styles.itemDark
+							}`}
+							key={link.title}
+						>
 							<p
-								className={styles.itemText}
+								className={`${styles.itemText} ${
+									screen !== "pricing" ? styles.itemTextLight : ""
+								}`}
 								onClick={() => {
 									movePage(link.to);
 								}}

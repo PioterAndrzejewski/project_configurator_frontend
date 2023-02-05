@@ -10,6 +10,8 @@
     margin-right: 60px
 
     .navbar
+        z-index: 10
+        color: white
         flex-basis: $top-bar-height
         width: $right-column-width
         align-self: flex-end
@@ -30,6 +32,15 @@
                     display: inline-block
                     @include animation-hover-main
                     @include animation-nav-item
+                .itemTextLight
+                    display: inline-block
+                    @include animation-hover-main
+                    @include animation-nav-item-light
+                item
+            .itemLight
+                @include typography-secondary($color-font-dark)
+            .itemDark
+                @include typography-secondary($color-font-light)
     .projectDetails
         flex-grow: 1
         display: flex
@@ -73,5 +84,10 @@
         padding-top: 55px
         text-align: right
         font-size: 15px
+        z-index: 5
         .footerLink
             margin: 10px
+    .footerLight
+        color: $color-font-light
+    .footerDark
+        color: $color-font-dark

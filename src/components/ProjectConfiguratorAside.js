@@ -5,7 +5,10 @@ import PriceBar from "./PriceBar";
 
 import styles from "../style/ProjectConfiguratorAside.module.sass";
 
+import { useRouter } from "../context/routerContext";
+
 function ProjectConfiguratorAside() {
+	const { screen } = useRouter();
 	return (
 		<section className={styles.aside}>
 			<LogoHeader />

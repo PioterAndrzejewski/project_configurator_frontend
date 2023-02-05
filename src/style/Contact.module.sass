@@ -1,0 +1,70 @@
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+.contact
+    position: absolute
+    z-index: 1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: $color-bg-main
+
+    @include contact-grid
+
+    transition: 0.3s
+    transform: translateX(0px)
+
+.contactMoved
+    @include module-moved(1500px)
+
+.heading
+    @include typography-secondary($color-font-light)
+
+.summary
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-top: $top-bar-height
+    margin-bottom: $bottom-bar-height
+    color: $color-font-light
+    @include grid-child-position(line2, line3, first, end)
+    .summaryText
+        @include typography-main-bold($color-font-light)
+    .summarySection
+        @include typography-main($color-font-light-less-important)
+    .summarySectionHeading
+        @include typography-main($color-font-light-less-important)
+    .summarySectionText
+        margin-top: 6px
+        @include typography-secondary($color-font-light)
+    .summaryDisclaimer
+        margin-top: 6px
+        @include typography-paragraph($color-font-light)
+        text-align: justify
+
+.backButton
+    @include contact-button($color-bg-button)
+    @include animation-hover-main
+    .backText
+        @include typography-secondary($color-font-light)
+.contactForm
+    margin-top: $top-bar-height
+    margin-bottom: $bottom-bar-height
+    @include grid-child-position(line4, line5, first, end)
+    display: flex
+    align-items: stretch
+
+.formContainer
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+.submitButton
+    @include contact-button($color-bg-icon-active)
+    @include animation-hover-main
+    .submitText
+        @include typography-secondary($color-font-light)

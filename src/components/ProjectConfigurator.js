@@ -4,6 +4,7 @@ import ProjectConfiguratorMain from "./ProjectConfiguratorMain";
 import ProjectVisualisation from "./ProjectVisualisation";
 import ProjectConfiguratorAside from "./ProjectConfiguratorAside";
 import Home from "./Home";
+import Contact from "./Contact";
 
 import axios from "axios";
 
@@ -30,6 +31,7 @@ function ProjectConfigurator() {
 			<ProjectConfiguratorMain />
 			<ProjectVisualisation />
 			<ProjectConfiguratorAside />
+			<Contact />
 		</main>
 	);
 }

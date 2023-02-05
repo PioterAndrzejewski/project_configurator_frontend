@@ -56,3 +56,39 @@
         transform: scaleX(0%)
     &:hover::after
         transform: scaleX(100%)
+
+@mixin animation-nav-item-light
+    &::after
+        content: ""
+        display: block
+        position: relative
+        top: -45px
+        height: 1px
+        background-color: $color-bg-light
+        transition: 0.15s
+        transform: scaleX(0%)
+    &:hover::after
+        transform: scaleX(100%)
+
+@mixin module-moved($xtranslation)
+    transition: 0.3s
+    transform: translateX($xtranslation)
+
+@mixin main-grid
+    display: grid
+    grid-template-columns: [first] 520px [line2] auto [end]
+    grid-template-rows: [first] auto [end]
+
+@mixin contact-grid
+    display: grid
+    grid-template-columns: [first] 60px [line2] 460px [line3] 266px [line4] 520px [line5] 60px [line6]
+    grid-template-rows: [first] auto [end]
+
+@mixin contact-button($color)
+    height: 50px
+    line-height: 50px
+    display: flex
+    justify-content: center
+    border-radius: 10px
+    background-color: $color
+    box-shadow: $box-shadow-main
