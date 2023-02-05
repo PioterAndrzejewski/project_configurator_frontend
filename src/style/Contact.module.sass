@@ -63,8 +63,16 @@
     flex-direction: column
     justify-content: space-between
 
+.submitButtonDisabled
+    @include contact-button($color-bg-icon-active)
+    @include typography-secondary($color-font-light)
+    cursor: auto
+    width: 100%
+    opacity: 0.3
+
 .submitButton
     @include contact-button($color-bg-icon-active)
+    @include typography-secondary($color-font-light)
     @include animation-hover-main
-    .submitText
-        @include typography-secondary($color-font-light)
+    cursor: pointer
+    width: 100%

@@ -102,8 +102,8 @@ function Summary() {
 							<div className={styles.summaryDisclaimer}>
 								<h5>
 									Please take into account that the above amount is an estimate
-									and various circumstances may change it. We'd love to discuss
-									the details!
+									and various circumstances may change it. Let's discuss the
+									details!
 								</h5>
 							</div>
 						</>

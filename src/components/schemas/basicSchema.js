@@ -15,7 +15,6 @@ const basicSchema = Yup.object({}).shape({
 	phone: Yup.string("Please provide valid phone number")
 		.matches(phoneRegExp, "Phone number is not valid")
 		.required("Please provide your phone number."),
-	type: Yup.string().oneOf(["hireMe", "openSource", "other"]),
 });
 
 export default basicSchema;

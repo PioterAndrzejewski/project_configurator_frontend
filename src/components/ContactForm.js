@@ -48,11 +48,14 @@ function ContactForm() {
 			type: "hireMe",
 			comment: "",
 		},
-		onSubmit: async (values, actions) => {
+		onSubmit: (values, actions) => {
 			console.log(values);
+			console.log(actions);
 		},
 		validationSchema: basicSchema,
 	});
+
+	console.log(Object.keys(errors).length);
 
 	return (
 		<>
@@ -163,11 +166,16 @@ function ContactForm() {
 								/>
 							</FormControl>
 						</div>
-						<div>
-							<h3 className={styles.submitButton}>
-								<span className={styles.submitText}>Send</span>
-							</h3>
-						</div>
+						<input
+							type="submit"
+							className={`${
+								Object.keys(errors).length !== 0
+									? styles.submitButtonDisabled
+									: styles.submitButton
+							}`}
+							value="Send information"
+							disabled={Object.keys(errors).length !== 0}
+						/>
 					</form>
 				</ChakraProvider>
 			</section>
