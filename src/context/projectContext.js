@@ -20,7 +20,7 @@ export const ProjectProvider = ({ children }) => {
 	const [priceError, setPriceError] = useState(undefined);
 	const [loadingPrice, setLoadingPrice] = useState(false);
 
-	const HOST = "http://127.0.0.1:3636";
+	const HOST = "https://project-configurator-backend.onrender.com/";
 
 	useEffect(() => {
 		const fetchProjectPrice = async () => {

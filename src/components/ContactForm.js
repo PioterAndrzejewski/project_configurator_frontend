@@ -6,18 +6,20 @@ import {
 	FormControl,
 	FormErrorMessage,
 	FormLabel,
-	Flex,
 	Input,
 	Select,
 	Textarea,
-	VStack,
-	Spacer,
 	ChakraProvider,
+	Spinner,
+	Center,
 } from "@chakra-ui/react";
+
+import axios from "axios";
 
 import { extendTheme } from "@chakra-ui/react";
 import basicSchema from "./schemas/basicSchema";
 import { useRouter } from "../context/routerContext";
+import { useProject } from "../context/projectContext";
 import styles from "../style/Contact.module.sass";
 
 const theme = extendTheme({
@@ -29,31 +31,49 @@ const theme = extendTheme({
 
 function ContactForm() {
 	const [isLoading, setIsLoading] = useState(false);
-
-	const { screen, movePage } = useRouter();
-
+	const { HOST, usedType, usedScope, usedAddons, usedBudget, price } =
+		useProject();
 	const {
-		values,
-		handleBlur,
-		handleChange,
-		handleSubmit,
-		errors,
-		touched,
-		isSubmitting,
-	} = useFormik({
-		initialValues: {
-			firstName: "",
-			email: "",
-			phone: "",
-			type: "hireMe",
-			comment: "",
-		},
-		onSubmit: (values, actions) => {
-			console.log(values);
-			console.log(actions);
-		},
-		validationSchema: basicSchema,
-	});
+		openErrorMessage,
+		changeToMessageDeliveredScreen,
+		openMessageDeliveryError,
+		isDelivering,
+		setIsDelivering,
+	} = useRouter();
+
+	const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+		useFormik({
+			initialValues: {
+				firstName: "",
+				email: "",
+				phone: "",
+				type: "",
+				comment: "",
+			},
+			onSubmit: (values, actions) => {
+				(async () => {
+					try {
+						setIsDelivering(true);
+						const response = await axios.post(`${HOST}/message`, {
+							values,
+							usedType,
+							usedScope,
+							usedAddons,
+							usedBudget,
+							price,
+						});
+						if (response.data.success) {
+							changeToMessageDeliveredScreen();
+							setIsDelivering(false);
+						}
+						openErrorMessage(false);
+					} catch (e) {
+						openMessageDeliveryError(true);
+					}
+				})();
+			},
+			validationSchema: basicSchema,
+		});
 
 	return (
 		<>
@@ -64,6 +84,7 @@ function ContactForm() {
 						autoComplete="off"
 						className={styles.formContainer}
 					>
+						<h2 className={styles.contactHeading}>Contact details</h2>
 						<div>
 							<FormControl isInvalid={errors.firstName && touched.firstName}>
 								<FormLabel htmlFor="firstName" color="whiteAlpha.800">
@@ -164,16 +185,23 @@ function ContactForm() {
 								/>
 							</FormControl>
 						</div>
-						<input
-							type="submit"
-							className={`${
-								Object.keys(errors).length !== 0
-									? styles.submitButtonDisabled
-									: styles.submitButton
-							}`}
-							value="Send information"
-							disabled={Object.keys(errors).length !== 0}
-						/>
+
+						{!isDelivering ? (
+							<input
+								type="submit"
+								className={`${
+									Object.keys(errors).length !== 0
+										? styles.submitButtonDisabled
+										: styles.submitButton
+								}`}
+								value="Send information"
+								disabled={Object.keys(errors).length !== 0}
+							/>
+						) : (
+							<Center>
+								<Spinner color="white" size="lg" />
+							</Center>
+						)}
 					</form>
 				</ChakraProvider>
 			</section>

@@ -87,7 +87,7 @@ function Slogan() {
 
 		const options = {
 			offset: 0,
-			timeout: 5,
+			timeout: 3,
 			iterations: 5,
 			characters: [
 				"a",

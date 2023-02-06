@@ -13,11 +13,11 @@ import styles from "../style/ProjectConfiguratorMain.module.sass";
 
 function ProjectConfiguratorMain() {
 	const { projectPhases, projectAddons } = useProject();
-	const { screen } = useRouter();
+	const { screen, messageDelivered } = useRouter();
 
 	return (
 		<section className={styles.main}>
-			<Navbar />
+			{!messageDelivered && <Navbar />}
 			<div className={styles.projectDetails}>
 				<Budget title="Estimated construction budget" />
 				<IconBar

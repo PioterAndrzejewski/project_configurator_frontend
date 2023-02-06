@@ -1,0 +1,31 @@
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+.errorPage
+    position: absolute
+    z-index: 1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: $color-bg-main
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    z-index: 4
+
+.heading
+    @include typography-main($color-font-light)
+
+.slogan
+    margin-top: 10px
+    @include typography-secondary($color-font-light)
+
+.sloganSmall
+    margin-top: 50px
+    @include typography-paragraph($color-font-light)
