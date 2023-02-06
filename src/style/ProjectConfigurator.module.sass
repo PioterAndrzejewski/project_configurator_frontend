@@ -1,3 +1,4 @@
+@import "media"
 @import "reset"
 @import "mixins"
 @import "variables"
@@ -7,7 +8,7 @@
     position: absolute
     left: 50%
     top: 50%
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%) scale(100%)
     width: 1366px
     height: 900px
     border-radius: 10px
@@ -19,3 +20,18 @@
 
     background-color: $color-bg-light
     box-shadow: $box-shadow-main
+
+@include media(">=desktop-md", "<desktop-lg")
+    .configurator
+        transform: translate(-50%, -50%) scale(86%)
+
+@include media(">=desktop-sm", "<desktop-md")
+    .configurator
+        transform: translate(-50%, -50%) scale(74%)
+
+@include media(">=min", "<desktop-sm")
+    .configurator
+        transform: translate(-50%, -50%) scale(100%)
+        width: 100%
+        heigt: auto
+        overflow: hidden
