@@ -13,7 +13,7 @@ import styles from "../style/ProjectConfiguratorMain.module.sass";
 
 function ProjectConfiguratorMain() {
 	const { projectPhases, projectAddons } = useProject();
-	const { screen, messageDelivered } = useRouter();
+	const { screen, messageDelivered, connectionError } = useRouter();
 
 	return (
 		<section className={styles.main}>
