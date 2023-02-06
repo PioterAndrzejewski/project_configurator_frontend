@@ -1,6 +1,67 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<p align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+  
+  ![image](https://user-images.githubusercontent.com/109315248/216972417-aa75a92f-8e6e-4c6b-8435-4f1871f1e1c0.png)
+
+</p>
+<h3 align="center">Project configurator</h3>
+
+  <p align="center">
+    frontend
+    <br />
+  <a href="https://pioterandrzejewski.github.io/Portfolio-app/">View Demo</a>
+  </p>
+</div>
+
+## Getting started
+
+After cloning the repository and installing dependencies run the app using npm start command. 
+
+  ```sh
+  $ git clone https://github.com/PioterAndrzejewski/project_configurator_frontend.git
+  $ cd project_configurator_frontend
+  $ npm i
+  $ npm start
+  ```
+Now you're ready to test the app in your browser on localhost:3000
+The application is configured to connect to the server at the link:
+https://project-configurator-backend.onrender.com
+If you need to change to a local server, update the HOST variable in ./src/context/projectContext.js
+
+The back-end repository is [>here<](https://github.com/PioterAndrzejewski/project_configurator_backend)
+
+### Built With
+
+- react,
+- SASS,
+
+with help of:
+- material ui icons,
+
+And form handling tools:
+- chakra UI,
+- formik,
+- yup,
+
+## About The Project
+
+This is an application for an example architectural office that calculates the initial valuation of a design study.
+
+### Project Aim
+
+The goal was to use in practice programming skills learned from courses and in the same time create application that may be used in practice. This two objectives were leading the way during the whole project development and indicating the features that may be useful and should be created.
+
+The project is valued on the basis of the valuation guidelines - a document promoted by the Association of Polish Architects ("Uchwała nr 70 z dnia 5 kwietnia 2014 r.
+Zarządu Głównego Stowarzyszenia Architektów Polskich").
+
+The valuation consists in calculating the appropriate percentage index taking into account:
+- the type of building being designed, which defines the complexity category,
+- scope and complexity of the project,
+- any additions to the project,
+
+The amount of the project fee is based on the total value of the investment and the above percentage.
 
 ## UI
 
@@ -9,65 +70,73 @@ The appearance of the application was first designed in Figma
 ![image](https://user-images.githubusercontent.com/109315248/216726218-f4f0b290-80fb-4453-9d15-9d5a84bfeb3a.png)
 
 
-### `npm start`
+### Back-end
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Team Manager is full stack app. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+See back-end repo [>Here<](https://github.com/PioterAndrzejewski/project_configurator_backend)
 
-### `npm test`
+    
+ ## Features
+ 
+The front-end single page application allows you to configure a project and send meeting request using following features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ### home screen
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/109315248/216977895-b61c3a5b-922e-4da6-9050-9201e8b75b30.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/109315248/216977929-e7ab9e05-5cb4-42a2-a43c-b3c8d9904e5f.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The start page greets the potential customer and encourages action with an animated tagline.
+This is also the time for the application to download information from the backend, because all the elements that will be selected later are each time downloaded from the current database. 
+ 
+  ### configure a project
+ 
+![image](https://user-images.githubusercontent.com/109315248/216982963-d0b74753-64ae-49f6-8911-b3205c60fa0e.png)
+ 
+The project configurator allows you to describe the project using:
+  - project type,
+- budget,
+- scope,
+- any additives
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If the application has enough data, it sends a request to the backend for the current price / visualization.
 
-### `npm run eject`
+For visualization you need:
+- object type,
+- project phase,
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://user-images.githubusercontent.com/109315248/216983955-e2162ee3-e868-4837-8313-223c4b00547b.png)
+![image](https://user-images.githubusercontent.com/109315248/216984011-058f7ed1-5ad3-4357-9cf7-2bdcfe8338fd.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+All information is needed to calculate the price.
+![image](https://user-images.githubusercontent.com/109315248/216984108-9a4536a0-c5e5-417f-866a-c7880b7030de.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+  ### ... to be continued
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### error handling
 
-### Making a Progressive Web App
+![image](https://user-images.githubusercontent.com/109315248/216979719-a5ff4c61-6897-43ff-9031-1f4d494729b4.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+If there was a connection error with the server, the application informs the user about it, additionally trying to establish this connection every 10 seconds.
 
-### Advanced Configuration
+ ## Project status
+ 
+ The main core of the application is finished. Is has all the functions that were established at the beginning of the project. The architecture of the application allows to add more features without major interference with the current ones.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Room for improvement
 
-### Deployment
+The main development opportunities are:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- expanding the base with additional options, e.g. for office or industrial construction
+- 
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
