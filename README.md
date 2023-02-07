@@ -6,12 +6,11 @@
   ![image](https://user-images.githubusercontent.com/109315248/216972417-aa75a92f-8e6e-4c6b-8435-4f1871f1e1c0.png)
 
 </p>
-<h3 align="center">Project configurator</h3>
 
   <p align="center">
     frontend
     <br />
-  <a href="https://pioterandrzejewski.github.io/Portfolio-app/">View Demo</a>
+  <a href="https://pioterandrzejewski.github.io/project_configurator_frontend/">View Demo</a>
   </p>
 </div>
 
