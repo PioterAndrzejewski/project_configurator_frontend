@@ -90,7 +90,7 @@ export const ProjectProvider = ({ children }) => {
 			setImageURL(response.data.imageURL);
 		};
 		fetchData();
-	}, [usedType, usedScope, usedAddons, usedBudget]);
+	}, [usedType, usedScope, usedBudget]);
 
 	const updateProject = ({ projectTypes, projectPhases, projectAddons }) => {
 		setProjectTypes(projectTypes);
