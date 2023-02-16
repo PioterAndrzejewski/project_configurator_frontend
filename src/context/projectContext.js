@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { RepeatOneSharp } from "@mui/icons-material";
+import useDebounce from "../hooks/useDebounce";
 
 const ProjectContext = createContext(undefined);
 
@@ -20,35 +20,48 @@ export const ProjectProvider = ({ children }) => {
 	const [priceError, setPriceError] = useState(undefined);
 	const [loadingPrice, setLoadingPrice] = useState(false);
 
-	const HOST = "https://project-configurator-backend.onrender.com";
+	const [fetchPrice, setFetchPrice] = useState(false);
+
+	// const HOST = "https://project-configurator-backend.onrender.com";
+	const HOST = "http://localhost:3636";
+
+	const fetchProjectPrice = async () => {
+		setLoadingPrice(true);
+		setPriceError(undefined);
+		setPrice(undefined);
+		const response = await axios.post(`${HOST}/projectprice`, {
+			usedType,
+			usedScope,
+			usedAddons,
+			usedBudget,
+		});
+		if (!response.data.success) {
+			setLoadingPrice(false);
+			setPrice(undefined);
+			setPriceError(response.data.message);
+			return;
+		}
+
+		if (response.data.success) {
+			setLoadingPrice(false);
+			setPriceError("");
+			setPrice(response.data.price);
+		}
+
+		return;
+	};
+	useDebounce(
+		() => {
+			if (fetchPrice) {
+				fetchProjectPrice();
+			}
+		},
+		500,
+		[usedBudget, usedScope, usedAddons, usedType, fetchPrice]
+	);
 
 	useEffect(() => {
-		const fetchProjectPrice = async () => {
-			setLoadingPrice(true);
-			setPriceError(undefined);
-			setPrice(undefined);
-			const response = await axios.post(`${HOST}/projectprice`, {
-				usedType,
-				usedScope,
-				usedAddons,
-				usedBudget,
-			});
-			if (!response.data.success) {
-				setLoadingPrice(false);
-				setPrice(undefined);
-				setPriceError(response.data.message);
-				return;
-			}
-
-			if (response.data.success) {
-				setLoadingPrice(false);
-				setPriceError("");
-				setPrice(response.data.price);
-			}
-
-			return;
-		};
-
+		setFetchPrice(false);
 		if (usedBudget === "") {
 			setPrice(undefined);
 			setPriceError("Please specify estimated construction budget");
@@ -65,7 +78,7 @@ export const ProjectProvider = ({ children }) => {
 			return;
 		}
 
-		fetchProjectPrice();
+		setFetchPrice(true);
 	}, [usedType, usedScope, usedAddons, usedBudget]);
 
 	useEffect(() => {
