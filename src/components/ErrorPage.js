@@ -11,11 +11,7 @@ function ErrorPage() {
 				</h1>
 				<h2 className={styles.slogan}>
 					If you are testing the app locally, make sure you had run the server
-					from the backend repository on port 3636.
-				</h2>
-				<h2 className={styles.slogan}>
-					If you are testing remotely, wait a while to let the server wake up
-					(about 30s). The app will try to connect automatically every 10s.
+					from the backend repository.
 				</h2>
 				<h3 className={styles.sloganSmall}>
 					If it doesn't work, unfortunately the server must have gone down{" "}

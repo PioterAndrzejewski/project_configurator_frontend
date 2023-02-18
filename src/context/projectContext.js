@@ -23,7 +23,8 @@ export const ProjectProvider = ({ children }) => {
 	const [fetchPrice, setFetchPrice] = useState(false);
 
 	// const HOST = "https://project-configurator-backend.onrender.com";
-	const HOST = "http://localhost:3636";
+	// const HOST = "http://localhost:3636";
+	const HOST = "https://projectconfigurator.pioterandrzejew.repl.co";
 
 	const fetchProjectPrice = async () => {
 		setLoadingPrice(true);
