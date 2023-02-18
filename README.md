@@ -24,10 +24,6 @@ After cloning the repository and installing dependencies run the app using npm s
   $ npm i
   $ npm start
   ```
-Now you're ready to test the app in your browser on localhost:3000
-The application is configured to connect to the server at the link:
-https://project-configurator-backend.onrender.com
-If you need to change to a local server, update the HOST variable in ./src/context/projectContext.js
 
 The back-end repository is [>here<](https://github.com/PioterAndrzejewski/project_configurator_backend)
 
