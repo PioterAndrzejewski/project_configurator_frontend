@@ -110,12 +110,16 @@ All information is needed to calculate the price.
 ![image](https://user-images.githubusercontent.com/109315248/216984108-9a4536a0-c5e5-417f-866a-c7880b7030de.png)
 
 
- 
+  ### Make a booking
 
+![image](https://user-images.githubusercontent.com/109315248/219855555-c5f70601-3eb6-4f2a-a5ab-ef2171c162e5.png)
 
-  ### ... to be continued
-  
+With the project details set, you can go to the summary page.
 
+On the left is a summary of your project.
+On the right, a short form with validation and the ability to send information to the backend.
+
+![image](https://user-images.githubusercontent.com/109315248/219855629-a76e93cc-f756-4170-88d8-48ee4dea8324.png)
 
 
 ### error handling
