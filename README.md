@@ -10,7 +10,7 @@
   <p align="center">
     frontend
     <br />
-  <a href="https://pioterandrzejewski.github.io/project_configurator_frontend/">View Demo</a>
+  <a href="https://projectconfigurator.pioterandrzejew.repl.co/">View Demo</a>
   </p>
 </div>
 
