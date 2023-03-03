@@ -10,7 +10,8 @@
   <p align="center">
     frontend
     <br />
-  <a href="https://projectconfigurator.pioterandrzejew.repl.co/">View Demo</a>
+  <a href="https://projectconfigurator.pioterandrzejew.repl.co/">View Demo</a> <br>
+  Please give it a moment - the server needs to start.
   </p>
 </div>
 
